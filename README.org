@@ -168,7 +168,7 @@ Register a backend with
   :endpoint "/openai/deployments/YOUR_DEPLOYMENT_NAME/chat/completions?api-version=2023-05-15" ;or equivalent
   :stream t                             ;Enable streaming responses
   :key #'gptel-api-key
-  :models '("gpt-3.5-turbo" "gpt-4"))
+  :models '(gpt-3.5-turbo gpt-4))
 #+end_src
 Refer to the documentation of =gptel-make-azure= to set more parameters.
 
@@ -187,7 +187,7 @@ The above code makes the backend available to select.  If you want it to be the 
                  :endpoint "/openai/deployments/YOUR_DEPLOYMENT_NAME/chat/completions?api-version=2023-05-15"
                  :stream t
                  :key #'gptel-api-key
-                 :models '("gpt-3.5-turbo" "gpt-4")))
+                 :models '(gpt-3.5-turbo gpt-4)))
 #+end_src
 #+html: </details>
 
@@ -200,7 +200,7 @@ Register a backend with
 (gptel-make-gpt4all "GPT4All"           ;Name of your choosing
  :protocol "http"
  :host "localhost:4891"                 ;Where it's running
- :models '("mistral-7b-openorca.Q4_0.gguf")) ;Available models
+ :models '(mistral-7b-openorca.Q4_0.gguf)) ;Available models
 #+end_src
 These are the required parameters, refer to the documentation of =gptel-make-gpt4all= for more.
 
@@ -217,7 +217,7 @@ The above code makes the backend available to select.  If you want it to be the 
  gptel-backend (gptel-make-gpt4all "GPT4All"
                  :protocol "http"
                  :host "localhost:4891"
-                 :models '("mistral-7b-openorca.Q4_0.gguf")))
+                 :models '(mistral-7b-openorca.Q4_0.gguf)))
 #+end_src
 
 #+html: </details>
@@ -231,7 +231,7 @@ Register a backend with
 (gptel-make-ollama "Ollama"             ;Any name of your choosing
   :host "localhost:11434"               ;Where it's running
   :stream t                             ;Stream responses
-  :models '("mistral:latest"))          ;List of models
+  :models '(mistral:latest))          ;List of models
 #+end_src
 These are the required parameters, refer to the documentation of =gptel-make-ollama= for more.
 
@@ -247,7 +247,7 @@ The above code makes the backend available to select.  If you want it to be the 
  gptel-backend (gptel-make-ollama "Ollama"
                  :host "localhost:11434"
                  :stream t
-                 :models '("mistral:latest")))
+                 :models '(mistral:latest)))
 #+end_src
 
 #+html: </details>
@@ -293,7 +293,7 @@ Register a backend with
   :stream t                             ;Stream responses
   :protocol "http"
   :host "localhost:8000"                ;Llama.cpp server location
-  :models '("test"))                    ;Any names, doesn't matter for Llama
+  :models '(test))                    ;Any names, doesn't matter for Llama
 #+end_src
 These are the required parameters, refer to the documentation of =gptel-make-openai= for more.
 
@@ -310,7 +310,7 @@ The above code makes the backend available to select.  If you want it to be the 
                  :stream t
                  :protocol "http"
                  :host "localhost:8000"
-                 :models '("test")))
+                 :models '(test)))
 #+end_src
 
 #+html: </details>
@@ -359,9 +359,9 @@ Register a backend with
   :key "your-api-key"                   ;can be a function that returns the key
   :stream t
   :models '(;; has many more, check together.ai
-            "mistralai/Mixtral-8x7B-Instruct-v0.1"
-            "codellama/CodeLlama-13b-Instruct-hf"
-            "codellama/CodeLlama-34b-Instruct-hf"))
+            mistralai/Mixtral-8x7B-Instruct-v0.1
+            codellama/CodeLlama-13b-Instruct-hf
+            codellama/CodeLlama-34b-Instruct-hf))
 #+end_src
 
 You can pick this backend from the menu when using gptel (see [[#usage][Usage]])
@@ -379,9 +379,9 @@ The above code makes the backend available to select.  If you want it to be the 
    :key "your-api-key"                   
    :stream t
    :models '(;; has many more, check together.ai
-             "mistralai/Mixtral-8x7B-Instruct-v0.1"
-             "codellama/CodeLlama-13b-Instruct-hf"
-             "codellama/CodeLlama-34b-Instruct-hf")))
+             mistralai/Mixtral-8x7B-Instruct-v0.1
+             codellama/CodeLlama-13b-Instruct-hf
+             codellama/CodeLlama-34b-Instruct-hf)))
 #+end_src
 
 #+html: </details>
@@ -396,7 +396,7 @@ Register a backend with
   :host "api.endpoints.anyscale.com"
   :key "your-api-key"                   ;can be a function that returns the key
   :models '(;; has many more, check anyscale
-            "mistralai/Mixtral-8x7B-Instruct-v0.1"))
+            mistralai/Mixtral-8x7B-Instruct-v0.1))
 #+end_src
 
 You can pick this backend from the menu when using gptel (see [[#usage][Usage]])
@@ -413,7 +413,7 @@ The above code makes the backend available to select.  If you want it to be the 
                  :host "api.endpoints.anyscale.com"
                  :key "your-api-key"
                  :models '(;; has many more, check anyscale
-                           "mistralai/Mixtral-8x7B-Instruct-v0.1")))
+                           mistralai/Mixtral-8x7B-Instruct-v0.1)))
 #+end_src
 
 #+html: </details>
@@ -430,10 +430,10 @@ Register a backend with
   :endpoint "/chat/completions"
   :stream t
   :models '(;; has many more, check perplexity.ai
-            "pplx-7b-chat"
-            "pplx-70b-chat"
-            "pplx-7b-online"
-            "pplx-70b-online"))
+            pplx-7b-chat
+            pplx-70b-chat
+            pplx-7b-online
+            pplx-70b-online))
 #+end_src
 
 You can pick this backend from the menu when using gptel (see [[#usage][Usage]])
@@ -452,10 +452,10 @@ The above code makes the backend available to select.  If you want it to be the 
    :endpoint "/chat/completions"
    :stream t
    :models '(;; has many more, check perplexity.ai
-             "pplx-7b-chat"
-             "pplx-70b-chat"
-             "pplx-7b-online"
-             "pplx-70b-online")))
+             pplx-7b-chat
+             pplx-70b-chat
+             pplx-7b-online
+             pplx-70b-online)))
 #+end_src
 
 #+html: </details>
@@ -496,12 +496,12 @@ Register a backend with
   :endpoint "/openai/v1/chat/completions"
   :stream t
   :key "your-api-key"                   ;can be a function that returns the key
-  :models '("llama-3.1-70b-versatile"
-            "llama-3.1-8b-instant"
-            "llama3-70b-8192"
-            "llama3-8b-8192"
-            "mixtral-8x7b-32768"
-            "gemma-7b-it"))
+  :models '(llama-3.1-70b-versatile
+            llama-3.1-8b-instant
+            llama3-70b-8192
+            llama3-8b-8192
+            mixtral-8x7b-32768
+            gemma-7b-it))
 #+end_src
 
 You can pick this backend from the menu when using gptel (see [[#usage][Usage]]).  Note that Groq is fast enough that you could easily set =:stream nil= and still get near-instant responses.
@@ -518,12 +518,12 @@ The above code makes the backend available to select.  If you want it to be the 
         :endpoint "/openai/v1/chat/completions"
         :stream t
         :key "your-api-key"
-        :models '("llama-3.1-70b-versatile"
-                  "llama-3.1-8b-instant"
-                  "llama3-70b-8192"
-                  "llama3-8b-8192"
-                  "mixtral-8x7b-32768"
-                  "gemma-7b-it")))
+        :models '(llama-3.1-70b-versatile
+                  llama-3.1-8b-instant
+                  llama3-70b-8192
+                  llama3-8b-8192
+                  mixtral-8x7b-32768
+                  gemma-7b-it)))
 #+end_src
 
 #+html: </details>
@@ -540,12 +540,12 @@ Register a backend with
   :endpoint "/api/v1/chat/completions"
   :stream t
   :key "your-api-key"                   ;can be a function that returns the key
-  :models '("openai/gpt-3.5-turbo"
-            "mistralai/mixtral-8x7b-instruct"
-            "meta-llama/codellama-34b-instruct"
-            "codellama/codellama-70b-instruct"
-            "google/palm-2-codechat-bison-32k"
-            "google/gemini-pro"))
+  :models '(openai/gpt-3.5-turbo
+            mistralai/mixtral-8x7b-instruct
+            meta-llama/codellama-34b-instruct
+            codellama/codellama-70b-instruct
+            google/palm-2-codechat-bison-32k
+            google/gemini-pro))
 
 #+end_src
 
@@ -563,12 +563,12 @@ The above code makes the backend available to select.  If you want it to be the 
         :endpoint "/api/v1/chat/completions"
         :stream t
         :key "your-api-key"                   ;can be a function that returns the key
-        :models '("openai/gpt-3.5-turbo"
-                  "mistralai/mixtral-8x7b-instruct"
-                  "meta-llama/codellama-34b-instruct"
-                  "codellama/codellama-70b-instruct"
-                  "google/palm-2-codechat-bison-32k"
-                  "google/gemini-pro")))
+        :models '(openai/gpt-3.5-turbo
+                  mistralai/mixtral-8x7b-instruct
+                  meta-llama/codellama-34b-instruct
+                  codellama/codellama-70b-instruct
+                  google/palm-2-codechat-bison-32k
+                  google/gemini-pro)))
 
 #+end_src
 
@@ -585,7 +585,7 @@ Register a backend with
   :stream t
   :context t                            ;Use context provided by embeddings
   :sources t                            ;Return information about source documents
-  :models '("private-gpt"))
+  :models '(private-gpt))
 
 #+end_src
 
@@ -604,7 +604,7 @@ The above code makes the backend available to select.  If you want it to be the 
         :stream t
         :context t                            ;Use context provided by embeddings
         :sources t                            ;Return information about source documents
-        :models '("private-gpt")))
+        :models '(private-gpt)))
 
 #+end_src
 
@@ -621,7 +621,7 @@ Register a backend with
   :endpoint "/chat/completions"
   :stream t
   :key "your-api-key"               ;can be a function that returns the key
-  :models '("deepseek-chat" "deepseek-coder"))
+  :models '(deepseek-chat deepseek-coder))
 
 #+end_src
 
@@ -639,7 +639,7 @@ The above code makes the backend available to select.  If you want it to be the 
         :endpoint "/chat/completions"
         :stream t
         :key "your-api-key"             ;can be a function that returns the key
-        :models '("deepseek-chat" "deepseek-coder")))
+        :models '(deepseek-chat deepseek-coder)))
 
 #+end_src
 
@@ -656,8 +656,8 @@ Register a backend with
   :endpoint "/v1/chat/completions"
   :stream t                             ;optionally nil as Cerebras is instant AI
   :key "your-api-key"                   ;can be a function that returns the key
-  :models '("llama3.1-70b"
-            "llama3.1-8b"))
+  :models '(llama3.1-70b
+            llama3.1-8b))
 #+end_src
 
 You can pick this backend from the menu when using gptel (see [[#usage][Usage]]).
@@ -674,8 +674,8 @@ The above code makes the backend available to select.  If you want it to be the 
         :endpoint "/v1/chat/completions"
         :stream nil
         :key "your-api-key"
-        :models '("llama3.1-70b"
-                  "llama3.1-8b")))
+        :models '(llama3.1-70b
+                  llama3.1-8b)))
 #+end_src
 
 #+html: </details>
@@ -691,7 +691,7 @@ Register a backend with
     :endpoint "/chat/completions"
     :stream t
     :key "your-github-token"
-    :models '("gpt-4o"))
+    :models '(gpt-4o))
 #+end_src
 
 For all the available models, check the [[https://github.com/marketplace/models][marketplace]].
@@ -710,7 +710,7 @@ The above code makes the backend available to select.  If you want it to be the 
           :endpoint "/chat/completions"
           :stream t
           :key "your-github-token"
-          :models '("gpt-4o"))
+          :models '(gpt-4o))
 #+end_src
 
 #+html: </details>
